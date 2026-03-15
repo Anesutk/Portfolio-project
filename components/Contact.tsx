@@ -8,7 +8,9 @@ const Contact = () => {
   const [errors, setErrors] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     const newErrors = { name: '', email: '', message: '' };
 
     if (!formData.name.trim()) newErrors.name = 'Name is required';
@@ -23,12 +25,29 @@ const Contact = () => {
 
     setErrors(newErrors);
 
-    if (Object.values(newErrors).some(err => err !== '')) {
-      e.preventDefault();
-      return;
-    }
+    if (Object.values(newErrors).some(err => err !== '')) return;
 
     setStatus("Sending...");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/anesutmandebvu@gmail.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus("✅ Message sent successfully!");
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus("❌ Failed to send message.");
+      }
+    } catch (error) {
+      setStatus("❌ Something went wrong. Please try again.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -41,51 +60,25 @@ const Contact = () => {
         <h2 className="section-title">Contact Me</h2>
 
         <form
-          action="https://formsubmit.co/anesutmandebvu@gmail.com"
-          method="POST"
           onSubmit={handleSubmit}
           className="contact-form"
           style={{ padding: '2rem', borderRadius: '1rem', maxWidth: '800px' }}
         >
-          {/* Prevent spam */}
-          <input type="hidden" name="_captcha" value="false" />
-
-          {/* Redirect after submit */}
-          <input type="hidden" name="_next" value="http://localhost:3000" />
-
           <div className="form-group">
             <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
+            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
             {errors.name && <div className="error-message">{errors.name}</div>}
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Your Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
             {errors.email && <div className="error-message">{errors.email}</div>}
           </div>
 
           <div className="form-group">
             <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-            />
+            <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} />
             {errors.message && <div className="error-message">{errors.message}</div>}
           </div>
 
@@ -101,12 +94,7 @@ const Contact = () => {
         </form>
 
         <div className="social-links">
-          <a
-            href="https://github.com/Anesutk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-          >
+          <a href="https://github.com/Anesutk" target="_blank" rel="noopener noreferrer" className="social-link">
             <FaGithub />
           </a>
 
