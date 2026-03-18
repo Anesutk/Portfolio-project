@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -96,6 +96,9 @@ const Contact = () => {
         <div className="social-links">
           <a href="https://github.com/Anesutk" target="_blank" rel="noopener noreferrer" className="social-link">
             <FaGithub />
+          </a>
+           <a href="https://wa.me/263783608421" target="_blank" rel="noopener noreferrer" className="social-link">
+            <FaWhatsapp />
           </a>
 
           <a
