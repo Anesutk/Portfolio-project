@@ -13,7 +13,7 @@ const About = () => {
         <div className="about-grid">
           <div className="profile-image">
             <img
-              src="https://picsum.photos/id/100/300/300"
+              src="/images/pic.png"
               alt="Profile"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
