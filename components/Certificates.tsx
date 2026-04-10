@@ -8,14 +8,14 @@ const certificates = [
     issuer: 'Cursa App',
     date: '2025',
     image: '/images/certificates/linux-training.png', // replace with actual path
-    link: '/certificates/linux-training.png', // link to open the image
+    link: '/images/certificates/linux-training.png', // link to open the image
   },
   {
     title: 'Ethical Hacking & Penetration Testing',
     issuer: 'Cursa App',
     date: '2023',
     image: '/images/certificates/ethical-hacking.png',
-    link: '/certificates/ethical-hacking.png',
+    link: '/images/certificates/ethical-hacking.png',
   },
   {
     title: 'SQL Injection',
