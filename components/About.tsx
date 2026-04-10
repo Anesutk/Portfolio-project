@@ -13,7 +13,7 @@ const About = () => {
         <div className="about-grid">
           <div className="profile-image">
             <img
-              src="/images/pic.png"
+              src="/images/profile/pic.png"
               alt="Profile"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
