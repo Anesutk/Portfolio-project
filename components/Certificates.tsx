@@ -5,21 +5,21 @@ import { motion } from 'framer-motion';
 const certificates = [
   {
     title: 'Linux Training by Hunt',
-    issuer: 'Meta',
+    issuer: 'Cursa App',
     date: '2025',
     image: '/images/certificates/linux-training.png', // replace with actual path
     link: '/certificates/linux-training.png', // link to open the image
   },
   {
     title: 'Ethical Hacking & Penetration Testing',
-    issuer: 'Amazon Web Services',
+    issuer: 'Cursa App',
     date: '2023',
     image: '/images/certificates/ethical-hacking.png',
     link: '/certificates/ethical-hacking.png',
   },
   {
     title: 'SQL Injection',
-    issuer: 'FreeCodeCamp',
+    issuer: 'Cursa App',
     date: '2023',
     image: '/images/certificates/sql-injection.png',
     link: '/images/certificates/sql-injection.png',
