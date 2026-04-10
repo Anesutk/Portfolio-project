@@ -21,8 +21,8 @@ const certificates = [
     title: 'SQL Injection',
     issuer: 'Cursa App',
     date: '2023',
-    image: '/images/certificates/sql-injection.png',
-    link: '/images/certificates/sql-injection.png',
+    image: '/images/certificates/sql injection.png',
+    link: '/images/certificates/sql injection.png',
   },
   {
     title: 'AI Powered Cybersecurity Fundamentals',
