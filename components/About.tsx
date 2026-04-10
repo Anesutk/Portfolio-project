@@ -47,7 +47,7 @@ const About = () => {
               </div>
               <div className="counter-item">
                 <div className="counter-number">
-                  {inView ? <CountUp end={8} duration={2} /> : '0'}+
+                  {inView ? <CountUp end={4} duration={2} /> : '0'}+
                 </div>
                 <div className="counter-label">Certificates</div>
               </div>
